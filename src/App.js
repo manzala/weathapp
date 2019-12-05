@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-bootstrap-typeahead/css/Typeahead.css';
 import 'react-bootstrap-typeahead/css/Typeahead-bs4.css';
@@ -7,17 +7,15 @@ import Header from './components/Header';
 import CityList from './components/CityList';
 import { cities } from './db.js';
 import './styles/SearchBar.css';
-
-const TypeaheadMenuItem = menuItemContainer(MenuItem);
+import { connect } from 'react-redux';
+import * as actionCreator from "./store/actions/actions"
 
 
 
 class App extends Component {
-  state = {
-    selected: [],
-    history: []
-  }
   render() {
+    //map props to store
+
     return (
       <div>
         <Header title="Weather Monster" />
@@ -28,12 +26,11 @@ class App extends Component {
             onChange={(selected) => {
               if (selected.length >= 1) {
                 console.log(selected)
-                this.setState({...this.state, history: this.state.history.concat(selected)})
               }
             }}
-            selected={this.state.selected}
+            selected={this.props.selected}
             renderMenuItemChildren={(option, props, index) => {
-            return (<span className='ta-item'  onClick={() => console.log("hi")}>{option}</span>)
+              return (<span className='ta-item' onClick={ () => this.props.onCityAdd(option)}>{option}</span>)
             }}
           />
         </div>
@@ -42,7 +39,20 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    cityList: state.cityList
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onCityAdd: (cityName) => dispatch(actionCreator.addCity(cityName)),
+    onCityRemove: (cityName) => dispatch(actionCreator.removeCity(cityName))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
 
 
 
