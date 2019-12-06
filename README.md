@@ -1,18 +1,25 @@
-## 'git clone'
+# 'How to install'
 
-git clone https://github.com/manzala/weathermonster
-cd weathermonster
+## '1. git clone'
 
-## 'npm install'
+git clone https://github.com/manzala/weathermonster <br />
+cd weathermonster<br />
 
-npm install
+## '2. npm install'
 
-### `npm start`
+npm install <br />
+
+### `3. npm start`
 
 Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-The page will reload if you make edits.<br />
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.<br />
+
+
+# 'How to test'
 
 ### `npm test`
+
+Run the command npm test at the root directory <br />
+Test cases should run
 
 
