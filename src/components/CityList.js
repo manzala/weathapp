@@ -20,7 +20,7 @@ class CityList extends Component {
                                     <Card.Text>
                                         <span>Min Temp: <b>{city.main.temp_min}&#176;C</b> </span> <br></br>
                                         <span>Max Temp: <b>{city.main.temp_max}&#176;C</b> </span> <br></br>
-                                        <span>Current Weather: <b>{city.main.temp}&#176;C </b></span> <img src={`${iconUrl}${city.weather[0].icon}.png`}/>
+                                        <span>Current Weather: <b>{city.main.temp}&#176;C </b></span><br></br> <img src={`${iconUrl}${city.weather[0].icon}.png`}/>
                                     </Card.Text>
                                 </Card.Body>
                             </Card>
