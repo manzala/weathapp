@@ -1,13 +1,11 @@
 import axios from "axios";
 
 const API_KEY = "81bc6b5ec985a129f13627f54258ea22";
-const URL = `https://api.openweathermap.org/data/2.5/weather?appid=${API_KEY}`;
+const URL = `https://api.openweathermap.org/data/2.5/weather?units=metric&appid=${API_KEY}`;
 
 export const addCityAsync = newCity => {
     return { type: "ADD_CITY", payload: newCity };
 };
-
-
 
 
 export const addCity = newCity => {
