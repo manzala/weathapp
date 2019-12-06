@@ -1,7 +1,9 @@
 const initialState = {
     cityList: [],
     errorMessage: "",
-    selected: []
+    selected: [],
+    dropDownList: ['London', 'Paris', 'Bangkok', 'Tokyo', 'Berlin', 'Tehran', 'Chennai', 'Karachi', 'Castries', 'Kingston'
+    ]
 }
 
 const reducer = (state = initialState, action) => {
@@ -10,12 +12,13 @@ const reducer = (state = initialState, action) => {
     switch (action.type) {
         case "ADD_CITY":
             newState.cityList = [...newState.cityList, action.payload]
+            newState.dropDownList = [...newState.dropDownList].filter(city => city !== action.payload.name)
             break;
         case "REMOVE_CITY":
             newState.cityList = action.payload
             break;
         default:
-            return state;
+            return newState;
     }
     return newState
 };
