@@ -2,7 +2,7 @@
 
 ## 1. git clone
 
-git clone https://github.com/manzala/weathermonster <br />
+git clone https://github.com/manzala/weathapp <br />
 cd weathermonster<br />
 
 ## 2. npm install
